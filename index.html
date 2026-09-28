@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101326">
+  <title>Hello, World! — A Little Spark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --ink: #f8f7ff; --muted: #aaa9c3; --pink: #ff8bd1; --mint: #91f5da; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; overflow: hidden; color: var(--ink); font-family: 'DM Sans', sans-serif; background: #101326; }
+    body::before, body::after { content: ''; position: fixed; width: 36rem; height: 36rem; border-radius: 50%; filter: blur(110px); opacity: .24; pointer-events: none; }
+    body::before { background: #734cff; top: -20rem; left: -10rem; }
+    body::after { background: #e848a4; right: -18rem; bottom: -24rem; }
+    .grain { position: fixed; inset: 0; pointer-events: none; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E"); }
+    main { width: min(92vw, 760px); position: relative; z-index: 1; text-align: center; padding: clamp(2rem, 7vw, 5.5rem) clamp(1.5rem, 7vw, 5rem); border: 1px solid rgba(255,255,255,.13); border-radius: 32px; background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); box-shadow: 0 32px 100px rgba(0,0,0,.36), inset 0 1px rgba(255,255,255,.12); backdrop-filter: blur(18px); animation: arrive .8s cubic-bezier(.2,.8,.2,1) both; }
+    .badge { display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .9rem; border: 1px solid rgba(145,245,218,.25); border-radius: 999px; color: var(--mint); background: rgba(145,245,218,.07); font-size: .76rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px var(--mint); }
+    h1 { margin: 2rem 0 1.15rem; font: 700 clamp(3.4rem, 11vw, 7rem)/.98 'Space Grotesk', sans-serif; letter-spacing: -.075em; }
+    h1 span { display: block; color: transparent; background: linear-gradient(100deg, #fff 5%, var(--pink) 55%, #b6a5ff 100%); background-clip: text; -webkit-background-clip: text; }
+    p { max-width: 34rem; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.18rem); line-height: 1.8; }
+    .actions { margin-top: 2.2rem; display: flex; justify-content: center; }
+    button { border: 0; padding: .95rem 1.35rem; border-radius: 14px; color: #171324; background: linear-gradient(110deg, var(--mint), #c2ffed); font: 700 .95rem 'DM Sans', sans-serif; cursor: pointer; box-shadow: 0 8px 28px rgba(145,245,218,.2); transition: transform .2s, box-shadow .2s; }
+    button:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(145,245,218,.34); }
+    button:active { transform: translateY(0); }
+    #greeting { min-height: 1.5em; margin-top: 1.2rem; color: var(--pink); font-size: .95rem; font-weight: 600; }
+    footer { position: fixed; bottom: 1.5rem; color: rgba(255,255,255,.38); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main>
+    <div class="badge"><span class="dot"></span> A little something on the web</div>
+    <h1>Hello,<span>world!</span></h1>
+    <p>Every great idea starts somewhere. Here’s to fresh starts, curious minds, and making something wonderful.</p>
+    <div class="actions"><button id="helloButton" type="button">Say hello ✨</button></div>
+    <div id="greeting" role="status" aria-live="polite"></div>
+  </main>
+  <footer>Made with a little extra sparkle</footer>
+  <script>
+    const button = document.querySelector('#helloButton');
+    const greeting = document.querySelector('#greeting');
+    button.addEventListener('click', () => {
+      greeting.textContent = 'Hello right back at you! 👋';
+      button.textContent = 'Hello sent ✓';
+    });
+  </script>
+</body>
+</html>
