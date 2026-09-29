@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101326">
-  <title>Hello, World! — A Little Spark</title>
+  <title>Hi, i am ujwala! — A Little Spark</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +17,9 @@
     body::after { background: #e848a4; right: -18rem; bottom: -24rem; }
     .grain { position: fixed; inset: 0; pointer-events: none; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E"); }
     main { width: min(92vw, 760px); position: relative; z-index: 1; text-align: center; padding: clamp(2rem, 7vw, 5.5rem) clamp(1.5rem, 7vw, 5rem); border: 1px solid rgba(255,255,255,.13); border-radius: 32px; background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); box-shadow: 0 32px 100px rgba(0,0,0,.36), inset 0 1px rgba(255,255,255,.12); backdrop-filter: blur(18px); animation: arrive .8s cubic-bezier(.2,.8,.2,1) both; }
+    nav { display: flex; justify-content: center; gap: 1.2rem; }
+    nav a { color: var(--muted); font-size: .9rem; font-weight: 700; text-decoration: none; transition: color .2s; }
+    nav a:hover, nav a[aria-current='page'] { color: var(--mint); }
     .badge { display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .9rem; border: 1px solid rgba(145,245,218,.25); border-radius: 999px; color: var(--mint); background: rgba(145,245,218,.07); font-size: .76rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px var(--mint); }
     h1 { margin: 2rem 0 1.15rem; font: 700 clamp(3.4rem, 11vw, 7rem)/.98 'Space Grotesk', sans-serif; letter-spacing: -.075em; }
@@ -35,6 +38,11 @@
 <body>
   <div class="grain" aria-hidden="true"></div>
   <main>
+    <nav aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <div class="badge"><span class="dot"></span> A little something on the web</div>
     <h1>Hello,<span>world!</span></h1>
     <p>Every great idea starts somewhere. Here’s to fresh starts, curious minds, and making something wonderful.</p>
